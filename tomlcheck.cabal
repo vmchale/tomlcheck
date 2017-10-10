@@ -1,20 +1,22 @@
 name:                tomlcheck
 version:             0.1.0.0
--- synopsis:
--- description:
+synopsis:            Command-line tool to check syntax of TOML files
+description:         This is a command-line wrapper around htoml-megaparsec.
+                     It is intended to be used as a syntax checker that can be
+                     called by your text editor.
 homepage:            https://github.com/vmchale/tomlcheck#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Vanessa McHale
 maintainer:          vanessa.mchale@reconfigure.io
 copyright:           Copyright: (c) 2017 Vanessa McHale
---category:            Web
+category:            Toml, Data
 build-type:          Simple
-extra-source-files:  README.md
+extra-source-files:  cabal.project.local
                    , stack.yaml
-cabal-version:       >=1.10
-Data-files:          README.md
-                   , .travis.yml
+cabal-version:       >=1.18
+Data-files:          .travis.yml
+Extra-doc-files:     README.md
 
 Flag development {
   Description: Enable `-Werror`
@@ -26,14 +28,15 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
   build-depends:       base >= 4.8 && < 5
-                     , htoml
+                     , htoml-megaparsec
                      , optparse-generic
+                     , megaparsec >= 6.0
                      , text
   default-language:    Haskell2010
   if flag(development)
     ghc-options: -Werror
   if impl(ghc >= 8.0)
-    ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+    ghc-options:       -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
   ghc-options:         -Wall
 
 executable tomlcheck
@@ -46,7 +49,7 @@ executable tomlcheck
   if flag(development)
     ghc-options: -Werror
   if impl(ghc >= 8.0)
-    ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+    ghc-options:       -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
   ghc-options:         -Wall
 
 source-repository head

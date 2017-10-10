@@ -3,19 +3,19 @@
 `tomlcheck` is a command-line wrapper around the `htoml` library which can be
 used as a syntax checker for TOML.
 
-You can find a vim plugin [here](link goes here).
+You can find a vim plugin [here](https://github.com/vmchale/tomlcheck-vim).
 
 ## Installation
 
 ### Binaries
 
 Head over to the [release page](link goes here) to see if your platform has
-binaries. Simply put them on your path and you should be good to go.
+binaries. Simply put it somewhere on your path.
 
 ### Stack
 
-Install [stack](https://docs.haskellstack.org/en/stable/README/), then
+Install [cabal](link), then
 
 ```bash
- $ stack install tomlcheck --resolver nightly
+ $ cabal install tomlcheck
 ```

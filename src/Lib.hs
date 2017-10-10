@@ -10,6 +10,7 @@ module Lib
 import qualified Data.Text.IO    as TIO
 import           GHC.Generics    (Generic)
 import           Options.Generic
+import           Text.Megaparsec (parseErrorPretty)
 import           Text.Toml       (parseTomlDoc)
 
 data Program = Program { file :: FilePath <?> "Path to file to be checked." }
@@ -24,4 +25,4 @@ exec = do
     contents <- TIO.readFile path
     case parseTomlDoc path contents of
         Right{} -> pure ()
-        Left e  -> print e
+        Left e  -> putStrLn $ parseErrorPretty e
