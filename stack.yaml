@@ -4,5 +4,5 @@ packages:
 extra-deps: []
 flags:
     tomlcheck:
-        development: false
+        development: true
 extra-package-dbs: []

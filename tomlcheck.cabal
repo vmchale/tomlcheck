@@ -12,8 +12,9 @@ copyright:           Copyright: (c) 2017 Vanessa McHale
 build-type:          Simple
 extra-source-files:  README.md
                    , stack.yaml
-                   , .travis.yml
 cabal-version:       >=1.10
+Data-files:          README.md
+                   , .travis.yml
 
 Flag development {
   Description: Enable `-Werror`
@@ -24,14 +25,16 @@ Flag development {
 library
   hs-source-dirs:      src
   exposed-modules:     Lib
-  build-depends:       base >= 4.7 && < 5
+  build-depends:       base >= 4.8 && < 5
                      , htoml
                      , optparse-generic
                      , text
   default-language:    Haskell2010
   if flag(development)
     ghc-options: -Werror
-  ghc-options:         -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+  if impl(ghc >= 8.0)
+    ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+  ghc-options:         -Wall
 
 executable tomlcheck
   hs-source-dirs:      app
@@ -42,7 +45,9 @@ executable tomlcheck
   default-language:    Haskell2010
   if flag(development)
     ghc-options: -Werror
-  ghc-options:         -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+  if impl(ghc >= 8.0)
+    ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+  ghc-options:         -Wall
 
 source-repository head
   type:     git
