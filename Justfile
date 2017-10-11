@@ -10,8 +10,7 @@ upload:
     cabal upload $(fd '.tar.gz$' -IH) --publish
 
 install:
-    sn c .
-    cabal new-build -O2
+    cabal new-build
     cp $(fd -IH 'tomlcheck$' | tail -n1) ~/.local/bin
 
 release:

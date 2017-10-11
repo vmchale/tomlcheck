@@ -27,7 +27,7 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
 ## Known Deficiencies
 
   * No Windows binaries
-  * Slow on large files (>= lines)
+  * Slow on large files (>= 7000 lines)
 
 ## Cool Facts
   
