@@ -39,7 +39,13 @@ script:
   - stack --no-terminal build --haddock --no-haddock-deps
   - hlint .
   - weeder .
-  - export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
+  - |
+    if [ `uname` = "Darwin" ]
+    then
+      export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
+    else
+      export BINPATH="$(find -name tomlcheck -executable | tail -n2 | head -n1)"
+    fi
   - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
   - ls tomlcheck-$TARGET
