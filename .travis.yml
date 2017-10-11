@@ -34,11 +34,12 @@ script:
   - hlint .
   - weeder .
   - export BINPATH="$(find -name tomlcheck -executable | tail -n1)"
+  - mv $BINPATH tomlcheck-$TARGET
 
 deploy:
   api_key:
     secure:
-  file: $BINPATH
+  file: tomlcheck-$TARGET
   on:
     tags: true
   provider: releases
