@@ -39,7 +39,7 @@ script:
   - stack --no-terminal build --haddock --no-haddock-deps
   - hlint .
   - weeder .
-  - export BINPATH="$(find -name tomlcheck -executable | tail -n2 | head -n1)"
+  - export BINPATH="$(find . -name tomlcheck | tail -n1)"
   - mv $BINPATH tomlcheck-$TARGET
 
 deploy:
