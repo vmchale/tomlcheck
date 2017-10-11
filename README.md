@@ -16,7 +16,8 @@ binaries. Simply put it somewhere on your path.
 
 ### Cabal
 
-Install [GHC & cabal](https://www.haskell.org/downloads#minimal), then
+Install [GHC](https://www.haskell.org/ghc/download.html) along with 
+[cabal](https://www.haskell.org/downloads#minimal), then
 
 ```bash
  $ cabal update
