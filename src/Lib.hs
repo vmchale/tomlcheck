@@ -13,10 +13,14 @@ import           Options.Generic
 import           Text.Megaparsec (parseErrorPretty)
 import           Text.Toml       (parseTomlDoc)
 
-data Program = Program { file :: FilePath <?> "Path to file to be checked." }
+newtype Program = Program { file :: FilePath <?> "Path to file to be checked." }
     deriving (Generic)
 
-instance ParseRecord Program
+programModifiers :: Modifiers
+programModifiers = defaultModifiers { shortNameModifier = firstLetter }
+
+instance ParseRecord Program where
+    parseRecord = parseRecordWithModifiers programModifiers
 
 exec :: IO ()
 exec = do

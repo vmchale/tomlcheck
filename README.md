@@ -12,10 +12,11 @@ You can find a vim plugin [here](https://github.com/vmchale/tomlcheck-vim).
 Head over to the [release page](link goes here) to see if your platform has
 binaries. Simply put it somewhere on your path.
 
-### Stack
+### Cabal
 
-Install [cabal](link), then
+Install [GHC & cabal](https://www.haskell.org/downloads#minimal), then
 
 ```bash
+ $ cabal update
  $ cabal install tomlcheck
 ```

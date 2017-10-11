@@ -1,3 +1,8 @@
+bench VERSION:
+    sn c .
+    cabal new-build -w ghc-{{ VERSION }}
+    export BIN=$(fd -IH 'tomlcheck$' | tail -n1) && bench "$BIN --file Cargo.toml"
+
 upload:
     rm -rf dist/
     cabal sdist

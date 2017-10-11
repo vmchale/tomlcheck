@@ -1,21 +1,50 @@
+---
+
 sudo: false
 language: default
 cache:
   directories:
-  - $HOME/.stack
+    - $HOME/.stack
 addons:
-    apt:
-        packages:
-            - libgmp3-dev
+  apt:
+    packages:
+      - libgmp3-dev
+matrix:
+  include:
+
+    # Linux
+    - env: TARGET=x86_64-unkown-linux-gnu
+
+    # OS X
+    - env: TARGET=x86_64-apple-darwin
+      os: osx
+
 before_install:
-- mkdir -p ~/.local/bin
-- export PATH=$HOME/.local/bin:$PATH
-- travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
-- chmod a+x ~/.local/bin/stack
+  - mkdir -p ~/.local/bin
+  - export PATH=$HOME/.local/bin:$PATH
+  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+  - chmod a+x ~/.local/bin/stack
+
 install:
-- stack --no-terminal --install-ghc test --only-dependencies
-- stack install hlint weeder
+  - stack --no-terminal --install-ghc test --only-dependencies
+  - stack install hlint weeder
+
 script:
-- stack --no-terminal test --haddock --no-haddock-deps
-- hlint .
-- weeder .
+  - stack --no-terminal build --haddock --no-haddock-deps
+  - hlint .
+  - weeder .
+  - export BINPATH="$(find -name tomlcheck -executable | tail -n1)"
+
+deploy:
+  api_key:
+    secure:
+  file: $BINPATH
+  on:
+    tags: true
+  provider: releases
+  skip_cleanup: true
+
+branches:
+  only:
+    - master
+    - /\d+\.\d+\.\d+\.\d+.*$/
