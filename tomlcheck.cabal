@@ -28,7 +28,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
   build-depends:       base >= 4.8 && < 5
-                     , htoml-megaparsec >= 0.1.1.0
+                     , htoml-megaparsec >= 1.0.1.0
                      , optparse-generic
                      , megaparsec >= 6.0
                      , text
