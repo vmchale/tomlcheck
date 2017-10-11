@@ -10,5 +10,5 @@ upload:
 
 install:
     sn c .
-    cabal new-build -w ghc-8.0.2
+    cabal new-build
     cp $(fd -IH 'tomlcheck$' | tail -n1) ~/.local/bin
