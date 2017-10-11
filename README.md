@@ -23,3 +23,13 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
  $ cabal update
  $ cabal install tomlcheck
 ```
+
+## Known Deficiencies
+
+  * No Windows binaries
+  * Slow on large files (>= lines)
+
+## Cool Facts
+  
+  * It's really fast
+  * It uses laziness to make checking schnell yet robust
