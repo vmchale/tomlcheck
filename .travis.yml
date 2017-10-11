@@ -36,7 +36,7 @@ install:
   - stack install hlint weeder
 
 script:
-  - stack --no-terminal build --no-haddock-deps
+  - stack --no-terminal build
   - hlint .
   - weeder .
   - |
@@ -44,7 +44,7 @@ script:
     then
       export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
     else
-      export BINPATH="$(find -name tomlcheck -executable | tail -n2 | head -n1)"
+      export BINPATH="$(find -name tomlcheck -executable | tail -n1 | head -n1)"
     fi
   - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
