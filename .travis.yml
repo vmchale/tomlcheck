@@ -40,7 +40,9 @@ script:
   - hlint .
   - weeder .
   - export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
+  - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
+  - ls tomlcheck-$TARGET
 
 deploy:
   api_key:
