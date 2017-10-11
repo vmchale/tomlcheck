@@ -1,6 +1,6 @@
 module Main where
 
-import Lib (exec)
+import Toml.Checker (exec)
 
 main :: IO ()
 main = exec
