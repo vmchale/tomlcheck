@@ -1,5 +1,7 @@
 # tomlcheck
 
+[![Build Status](https://travis-ci.org/vmchale/tomlcheck.svg?branch=master)](https://travis-ci.org/vmchale/tomlcheck)
+
 `tomlcheck` is a command-line wrapper around the `htoml` library which can be
 used as a syntax checker for TOML.
 
