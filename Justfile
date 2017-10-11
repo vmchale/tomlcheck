@@ -12,3 +12,6 @@ install:
     sn c .
     cabal new-build
     cp $(fd -IH 'tomlcheck$' | tail -n1) ~/.local/bin
+
+check:
+    git diff master origin/master
