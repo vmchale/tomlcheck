@@ -16,6 +16,7 @@ install:
 release:
     git tag "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
     git push origin --tags
+    github-release edit -s $(cat .git-token) -u vmchale -r tomlcheck -n $(madlang run ~/programming/madlang/releases/releases.mad) -t "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
 
 check:
     git diff master origin/master
