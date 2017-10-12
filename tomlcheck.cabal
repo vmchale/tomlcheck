@@ -16,6 +16,7 @@ extra-source-files:  cabal.project.local
                    , stack.yaml
 cabal-version:       >=1.18
 Data-files:          .travis.yml
+                   , appveyor.yml
                    , Justfile
 Extra-doc-files:     README.md
 
