@@ -21,8 +21,7 @@ test_script:
   - ps: Push-AppveyorArtifact tomlcheck-x86_64-pc-windows.exe
 
 deploy:
-  artifacts:
-    - path: tomlcheck-x86_64-pc-windows.exe
+  artifacts: tomlcheck-x86_64-pc-windows.exe
   provider: GitHub
   on:
     appveyor_repo_tag: true
