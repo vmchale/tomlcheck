@@ -24,28 +24,3 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
  $ cabal update
  $ cabal install tomlcheck
 ```
-
-## Known Deficiencies
-
-  * No Windows binaries
-  * Slow on large files (>7000 lines)
-
-## Cool Facts
-  
-  * It's really fast
-  * It uses laziness to make checking schnell yet robust
-
-```
--------------------------------------------------------------------------------
- Language            Files        Lines         Code     Comments       Blanks
--------------------------------------------------------------------------------
- Cabal                   1           58           53            1            4
- Haskell                 3           40           28            4            8
- Justfile                1           21           16            0            5
- Markdown                2           42           42            0            0
- TOML                    3           87           78            0            9
- YAML                    1            9            9            0            0
--------------------------------------------------------------------------------
- Total                  11          257          226            5           26
--------------------------------------------------------------------------------
-```
