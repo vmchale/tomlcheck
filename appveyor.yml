@@ -17,7 +17,7 @@ test_script:
   - stack setup > nul
   - echo "" | stack --no-terminal install
   - ps: Get-ChildItem . -name -recurse tomlcheck.exe
-  - echo $APPVEYOR_REPO_TAG_NAME
+  - ps: Get-ChildItem Env:APPVEYOR_REPO_TAG_NAME
 
 deploy:
   artifact: C:\\stack\\.stack-work\\install\\afd8a623\\bin\\tomlcheck.exe
@@ -30,4 +30,5 @@ deploy:
 branches:
   only:
     # Release tags
+    - master
     - /\d+\.\d+\.\d+\.\d+.*$/
