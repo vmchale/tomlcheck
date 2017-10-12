@@ -23,7 +23,7 @@ deploy:
   artifact: C:\\stack\\.stack-work\\install\\afd8a623\\bin\\tomlcheck.exe
   provider: GitHub
   on:
-    apveyor_repo_tag: true
+    appveyor_repo_tag: true
   auth_token:
     secure: 0qzMr6xmEwRoj/9TJOgDuW/LXWfGVM/4A7kvAXGe0BAwWCF13AWE2SARrYkyc3ji
 
