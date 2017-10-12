@@ -23,6 +23,8 @@ install:
 release:
     git tag "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
     git push origin --tags
+
+name:
     github-release edit -s $(cat .git-token) -u vmchale -r tomlcheck -n $(madlang run ~/programming/madlang/releases/releases.mad) -t "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
 
 check:
