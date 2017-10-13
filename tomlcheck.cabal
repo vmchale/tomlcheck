@@ -1,5 +1,5 @@
 name:                tomlcheck
-version:             0.1.0.6
+version:             0.1.0.7
 synopsis:            Command-line tool to check syntax of TOML files
 description:         This is a command-line wrapper around htoml-megaparsec.
                      It is intended to be used as a syntax checker that can be
@@ -20,6 +20,12 @@ Data-files:          .travis.yml
                    , Justfile
 Extra-doc-files:     README.md
 
+Flag native {
+  Description: Target current CPU
+  manual: True
+  default: False
+}
+
 Flag development {
   Description: Enable `-Werror`
   manual: True
@@ -30,13 +36,15 @@ library
   hs-source-dirs:      src
   exposed-modules:     Toml.Checker
   build-depends:       base >= 4.8 && < 5
-                     , htoml-megaparsec >= 1.0.1.1
+                     , htoml-megaparsec >= 1.0.1.2
                      , optparse-generic
                      , megaparsec >= 6.0
                      , text
   default-language:    Haskell2010
+  if flag(native)
+    ghc-options:       -opta-mtune=native -optc-mtune=native
   if flag(development) && impl(ghc >= 8.0)
-    ghc-options: -Werror
+    ghc-options:       -Werror
   if impl(ghc >= 8.0)
     ghc-options:       -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
   ghc-options:         -Wall
@@ -48,8 +56,10 @@ executable tomlcheck
   build-depends:       base
                      , tomlcheck
   default-language:    Haskell2010
+  if flag(native)
+    ghc-options:       -opta-mtune=native -optc-mtune=native
   if flag(development)
-    ghc-options: -Werror
+    ghc-options:       -Werror
   if impl(ghc >= 8.0)
     ghc-options:       -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
   ghc-options:         -Wall

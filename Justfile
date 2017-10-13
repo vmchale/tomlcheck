@@ -1,9 +1,12 @@
 clean:
     sn c .
-    rm -f lol.html
 
-lol:
-    bench "sn help" "tomlcheck --file data/example.toml" --output lol.html
+compare:
+    cabal new-build -O2 --constraint='tomlcheck +native'
+    cp $(fd -IH 'tomlcheck$' | tail -n1) ~/.local/bin
+    bench "rust-tomlcheck --file data/sample.toml" "tomlcheck --file data/sample.toml" "rust-tomlcheck --file data/bad.toml" "tomlcheck --file data/bad.toml"
+    
+#bench "rust-tomlcheck --file data/example.toml" "tomlcheck --file data/example.toml" "rust-tomlcheck --file data/good.toml" "tomlcheck --file data/good.toml"
 
 next:
     @export VERSION=$(cat tomlcheck.cabal | grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1 | awk -F. '{$NF+=1; print $0}' | sed 's/ /\./g') && echo $VERSION && sed -i "2s/[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+/$VERSION/" tomlcheck.cabal
@@ -25,7 +28,7 @@ release:
     git push origin --tags
 
 name:
-    github-release edit -s $(cat .git-token) -u vmchale -r tomlcheck -n $(madlang run ~/programming/madlang/releases/releases.mad) -t "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
+    github-release edit -s $(cat .git-token) -u vmchale -r tomlcheck -n "$(madlang run ~/programming/madlang/releases/releases.mad)" -t "$(grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1)"
 
 check:
     git diff master origin/master

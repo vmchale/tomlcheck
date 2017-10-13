@@ -1,0 +1,7 @@
+- [ ] bash script to automatically download?
+- [ ] fix pseudo-space leak (lazy bytestring?)
+- [ ] unicode-fd ?
+- [ ] consider optparse-applicative for completions etc.
+- [ ] verify that keys aren't defined twice
+- [ ] exit codes
+- [ ] better error for `data/semantic.toml`
