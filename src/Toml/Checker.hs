@@ -28,5 +28,5 @@ exec = do
     let path = unHelpful $ file x
     contents <- TIO.readFile path
     case parseTomlDoc path contents of
-        Right{} -> pure ()
+        Right _ -> pure ()
         Left e  -> putStrLn $ parseErrorPretty e
