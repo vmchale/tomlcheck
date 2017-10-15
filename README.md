@@ -24,3 +24,16 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
  $ cabal update
  $ cabal install tomlcheck
 ```
+
+## Use
+
+### Travis
+
+A sample script for your `.travis.yml` file:
+
+```yaml
+test:
+  - wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.8/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
+  - chmod a+x tomlcheck
+  - ./tomlcheck --file data/sample.toml
+```

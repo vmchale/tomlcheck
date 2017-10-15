@@ -1,7 +1,7 @@
-- [ ] bash script to automatically download?
-- [ ] fix pseudo-space leak (lazy bytestring?)
-- [ ] unicode-fd ?
+~~- [ ] bash script to automatically download?~~
+- [ ] example for travis CI
+- [x] fix pseudo-space leak
 - [ ] consider optparse-applicative for completions etc.
-- [ ] verify that keys aren't defined twice
+- [ ] verify that keys aren't defined twice (verbessern) when keys are defined
+  inline.
 - [ ] exit codes
-- [ ] better error for `data/semantic.toml`
