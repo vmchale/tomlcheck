@@ -10,7 +10,7 @@ module Toml.Checker
 import qualified Data.Text.IO    as TIO
 import           GHC.Generics    (Generic)
 import           Options.Generic
-import           System.Exit     (ExitFailure, exitWith)
+import           System.Exit     (ExitCode (..), exitWith)
 import           Text.Megaparsec (parseErrorPretty)
 import           Text.Toml       (parseTomlDoc)
 
@@ -30,4 +30,7 @@ exec = do
     contents <- TIO.readFile path
     case parseTomlDoc path contents of
         Right _ -> pure ()
-        Left e  -> exitWith (ExitFailure 1) $ putStrLn $ parseErrorPretty e
+        Left e  -> do
+            putStrLn $ parseErrorPretty e
+            exitWith (ExitFailure 1)
+
