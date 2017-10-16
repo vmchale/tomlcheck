@@ -15,6 +15,7 @@ environment:
 
 test_script:
   - stack setup > nul
+  - stack update
   - echo "" | stack --no-terminal install
   - ps: Get-ChildItem . -name -recurse tomlcheck.exe
   - ps: Copy-Item c:\\stack\\.stack-work\\install\\afd8a623\\bin\\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe

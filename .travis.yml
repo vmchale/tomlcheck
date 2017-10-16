@@ -36,6 +36,7 @@ install:
   - stack install hlint weeder
 
 script:
+  - stack update
   - stack --no-terminal build --haddock --no-haddock-deps
   - hlint .
   - weeder .
