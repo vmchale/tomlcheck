@@ -33,4 +33,3 @@ exec = do
         Left e  -> do
             putStrLn $ parseErrorPretty e
             exitWith (ExitFailure 1)
-
