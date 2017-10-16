@@ -6,8 +6,6 @@ compare:
     cp $(fd -IH 'tomlcheck$' | tail -n1) ~/.local/bin
     bench "rust-tomlcheck --file data/sample.toml" "tomlcheck --file data/sample.toml" "rust-tomlcheck --file data/bad.toml" "tomlcheck --file data/bad.toml"
     
-#bench "rust-tomlcheck --file data/example.toml" "tomlcheck --file data/example.toml" "rust-tomlcheck --file data/good.toml" "tomlcheck --file data/good.toml"
-
 next:
     @export VERSION=$(cat tomlcheck.cabal | grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1 | awk -F. '{$NF+=1; print $0}' | sed 's/ /\./g') && echo $VERSION && sed -i "2s/[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+/$VERSION/" tomlcheck.cabal
 

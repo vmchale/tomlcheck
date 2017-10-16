@@ -41,7 +41,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     Toml.Checker
   build-depends:       base >= 4.8 && < 5
-                     , htoml-megaparsec >= 1.0.1.6
+                     , htoml-megaparsec >= 1.0.1.7
                      , optparse-generic
                      , megaparsec >= 6.0
                      , text
