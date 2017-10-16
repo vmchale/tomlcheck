@@ -1,6 +1,6 @@
 ~~- [ ] bash script to automatically download?~~
 - [ ] flycheck support
-- [ ] toml formatter
+- [ ] toml pretty-printer
 - [ ] linter (?)
   - [ ] particularly indentation
 - [x] example for travis CI
