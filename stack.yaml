@@ -5,5 +5,7 @@ extra-deps:
   - megaparsec-6.2.0
   - htoml-megaparsec-1.0.1.6
   - composition-prelude-0.1.1.0
-flags: {}
+flags:
+  tomlcheck:
+    optimize: true
 extra-package-dbs: []
