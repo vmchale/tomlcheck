@@ -33,7 +33,12 @@ A sample script for your `.travis.yml` file:
 
 ```yaml
 test:
-  - wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.8/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
-  - chmod a+x tomlcheck
-  - ./tomlcheck --file data/sample.toml
+  - |
+    if [ `uname` = "Darwin" ]
+    then
+      echo 'skipping tomlcheck download...'
+    else
+      wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.8/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
+      chmod a+x tomlcheck
+      ./tomlcheck --file data/sample.toml
 ```
