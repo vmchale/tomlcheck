@@ -15,7 +15,7 @@ import           System.Exit     (ExitCode (..), exitWith)
 import           Text.Megaparsec (parseErrorPretty)
 import           Text.Toml       (parseTomlDoc)
 
-newtype Program = Program { files :: [FilePath] <?> "Path to file to be checked." }
+newtype Program = Program { file :: [FilePath] <?> "Path to file to be checked." }
     deriving (Generic)
 
 programModifiers :: Modifiers
@@ -27,7 +27,7 @@ instance ParseRecord Program where
 exec :: IO ()
 exec = do
     x <- getRecord "Command-line wrapper around htoml"
-    let paths = unHelpful $ files x
+    let paths = unHelpful $ file x
     contents <- traverse TIO.readFile paths
     case zipWithM parseTomlDoc paths contents of
         Right _ -> pure ()
