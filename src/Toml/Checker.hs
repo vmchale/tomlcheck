@@ -7,6 +7,7 @@ module Toml.Checker
     ( exec
     ) where
 
+import           Control.Monad   (zipWithM)
 import qualified Data.Text.IO    as TIO
 import           GHC.Generics    (Generic)
 import           Options.Generic
@@ -14,7 +15,7 @@ import           System.Exit     (ExitCode (..), exitWith)
 import           Text.Megaparsec (parseErrorPretty)
 import           Text.Toml       (parseTomlDoc)
 
-newtype Program = Program { file :: FilePath <?> "Path to file to be checked." }
+newtype Program = Program { files :: [FilePath] <?> "Path to file to be checked." }
     deriving (Generic)
 
 programModifiers :: Modifiers
@@ -26,9 +27,9 @@ instance ParseRecord Program where
 exec :: IO ()
 exec = do
     x <- getRecord "Command-line wrapper around htoml"
-    let path = unHelpful $ file x
-    contents <- TIO.readFile path
-    case parseTomlDoc path contents of
+    let paths = unHelpful $ files x
+    contents <- traverse TIO.readFile paths
+    case zipWithM parseTomlDoc paths contents of
         Right _ -> pure ()
         Left e  -> do
             putStrLn $ parseErrorPretty e
