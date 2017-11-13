@@ -32,5 +32,5 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
 Add the following your `.travis.yml` file to check a `.toml` file:
 
 ```yaml
-  - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s
+  - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s Config.toml
 ```

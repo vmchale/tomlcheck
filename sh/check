@@ -3,9 +3,9 @@ if [ "$(uname)" = "Darwin" ]
 then
     wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.19/tomlcheck-x86_64-apple-darwin -O tomlcheck
     chmod a+x tomlcheck
-    ./tomlcheck --file data/sample.toml
+    ./tomlcheck --file "$@"
 else
     wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.19/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
     chmod a+x tomlcheck
-    ./tomlcheck --file data/sample.toml
+    ./tomlcheck --file "$@"
 fi
