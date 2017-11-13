@@ -33,13 +33,12 @@ before_install:
 
 install:
   - stack --no-terminal --install-ghc test --only-dependencies
-  - stack install hlint weeder
 
 script:
   - stack update
   - stack --no-terminal build --haddock --no-haddock-deps
-  - hlint .
-  - weeder .
+  - curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s .
+  - curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
   - |
     if [ `uname` = "Darwin" ]
     then
@@ -50,7 +49,7 @@ script:
   - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
   - ls tomlcheck-$TARGET
-  - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s
+    #- curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s
 
 deploy:
   api_key:

@@ -18,6 +18,7 @@ cabal-version:       >=1.18
 Data-files:          .travis.yml
                    , appveyor.yml
                    , Justfile
+                   , sh/check
 Extra-doc-files:     README.md
 
 Flag optimize {
