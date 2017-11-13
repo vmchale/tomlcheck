@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+if [ "$(uname)" = "Darwin" ]
+then
+    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.18/tomlcheck-x86_64-apple-darwin -O tomlcheck
+    chmod a+x tomlcheck
+    ./tomlcheck --file data/sample.toml
+else
+    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.18/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
+    chmod a+x tomlcheck
+    ./tomlcheck --file data/sample.toml
+fi
