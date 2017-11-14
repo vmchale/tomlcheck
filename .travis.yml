@@ -37,8 +37,11 @@ install:
 script:
   - stack update
   - stack --no-terminal build --haddock --no-haddock-deps
-  - curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s .
-  - curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
+  - if [ `uname` = "Linux" ]
+    then
+      curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s .
+      curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
+    fi
   - |
     if [ `uname` = "Darwin" ]
     then
