@@ -40,6 +40,8 @@ script:
   - if [ `uname` = "Linux" ]
     then
       curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s .
+    else
+      echo 'skipping...'
     fi
   - |
     if [ `uname` = "Darwin" ]
