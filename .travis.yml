@@ -37,18 +37,19 @@ install:
 script:
   - stack update
   - stack --no-terminal build --haddock --no-haddock-deps
-  - if [ `uname` = "Linux" ]
+  - |
+    if [ `uname` = "Linux" ]
     then
-      curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s .
+      curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s src app bench test
+      curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
     else
-      echo 'skipping...'
+      echo 'skipping hlint/weeder...'
     fi
   - |
     if [ `uname` = "Darwin" ]
     then
       export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
     else
-      curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
       export BINPATH="$(find -name tomlcheck -executable | tail -n2 | head -n1)"
     fi
   - echo $BINPATH
