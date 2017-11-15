@@ -6,8 +6,11 @@ cache:
     - $HOME/.stack
 addons:
   apt:
+    sources:
+      - debian-sid
     packages:
       - libgmp3-dev
+      - shellcheck
 matrix:
   include:
 
@@ -34,6 +37,7 @@ install:
   - stack --no-terminal --install-ghc test --only-dependencies
 
 script:
+  - shellcheck sh/check
   - stack update
   - stack --no-terminal build --haddock --no-haddock-deps
   - |
