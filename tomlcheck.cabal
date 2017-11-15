@@ -1,5 +1,5 @@
 name:                tomlcheck
-version:             0.1.0.21
+version:             0.1.0.22
 synopsis:            Command-line tool to check syntax of TOML files
 description:         This is a command-line wrapper around htoml-megaparsec.
                      It is intended to be used as a syntax checker that can be
