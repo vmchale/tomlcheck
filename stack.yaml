@@ -1,12 +1,8 @@
 ---
-resolver: lts-10.6
+resolver: lts-11.4
 packages:
   - './'
 extra-deps:
-  - megaparsec-6.2.0
-  - htoml-megaparsec-1.0.1.11
-  - composition-prelude-0.1.1.0
-flags:
-  tomlcheck:
-    optimize: true
+  - htoml-megaparsec-1.1.0.3
+  - composition-prelude-1.3.0.8
 extra-package-dbs: []

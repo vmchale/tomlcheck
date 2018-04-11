@@ -14,23 +14,12 @@ category:            Toml, Data
 build-type:          Simple
 extra-source-files:  cabal.project.local
                    , stack.yaml
-cabal-version:       >=1.18
+cabal-version:       1.18
 Data-files:          .travis.yml
                    , appveyor.yml
                    , Justfile
                    , sh/check
 Extra-doc-files:     README.md
-
-Flag optimize {
-  Description: Optimize with -O2
-  default: False
-}
-
-Flag native {
-  Description: Target current CPU
-  manual: True
-  default: False
-}
 
 Flag development {
   Description: Enable `-Werror`
@@ -47,8 +36,6 @@ library
                      , megaparsec >= 6.0
                      , text
   default-language:    Haskell2010
-  if flag(native)
-    ghc-options:       -opta-mtune=native -optc-mtune=native
   if flag(development) && impl(ghc >= 8.0)
     ghc-options:       -Werror
   if impl(ghc >= 8.0)
@@ -58,14 +45,9 @@ library
 executable tomlcheck
   hs-source-dirs:      app
   main-is:             Main.hs
-  -- ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , tomlcheck
   default-language:    Haskell2010
-  if flag(native)
-    ghc-options:       -opta-mtune=native -optc-mtune=native
-  if flag(optimize)
-    ghc-options:       -O2
   if flag(development)
     ghc-options:       -Werror
   if impl(ghc >= 8.0)
