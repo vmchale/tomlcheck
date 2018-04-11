@@ -8,8 +8,8 @@ homepage:            https://github.com/vmchale/tomlcheck#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Vanessa McHale
-maintainer:          vanessa.mchale@reconfigure.io
-copyright:           Copyright: (c) 2017 Vanessa McHale
+maintainer:          vamchale@gmail.com
+copyright:           Copyright: (c) 2017-2018 Vanessa McHale
 category:            Toml, Data
 build-type:          Simple
 extra-source-files:  cabal.project.local
