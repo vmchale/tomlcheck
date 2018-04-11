@@ -34,7 +34,7 @@ executable tomlcheck
     default-language: Haskell2010
     ghc-options: -Wall
     build-depends:
-        base >=4.8 && <5,
+        base >=4.9 && <5,
         htoml-megaparsec >=1.0.1.11,
         optparse-generic -any,
         megaparsec >=6.0,
@@ -45,3 +45,6 @@ executable tomlcheck
     
     if impl(ghc >=8.0)
         ghc-options: -Wincomplete-uni-patterns -Wincomplete-record-updates
+    
+    if impl(ghc >=8.4)
+        ghc-options: -Wmissing-export-lists
