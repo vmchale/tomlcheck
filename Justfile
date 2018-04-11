@@ -1,6 +1,5 @@
-tokei:
-    @poly -t -e README.md -e TODO.md -e data/ -e Justfile .
-    @tokei -e README.md -e TODO.md -e data/ -e Justfile . .travis.yml
+poly:
+    @poly -e README.md -e TODO.md -e data/ -e Justfile .
 
 clean:
     sn c .

@@ -1,2 +1,2 @@
-optimization: 1
+optimization: 2
 constraints: tomlcheck +development
