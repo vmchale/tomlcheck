@@ -7,7 +7,7 @@ module Main
     ( main
     ) where
 
-import           Control.Monad   (zipWithM)
+import           Control.Monad
 import qualified Data.Text.IO    as TIO
 import           GHC.Generics    (Generic)
 import           Options.Generic

@@ -1,6 +1,7 @@
 tags
 .git-token
 dist
+dist-newstyle
 dist-*
 doc
 *.o
