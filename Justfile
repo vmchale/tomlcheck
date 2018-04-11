@@ -14,7 +14,6 @@ poly:
 
 next:
     @export VERSION=$(cat tomlcheck.cabal | grep -P -o '\d+\.\d+\.\d+\.\d+' tomlcheck.cabal | head -n1 | awk -F. '{$NF+=1; print $0}' | sed 's/ /\./g') && echo $VERSION && sed -i "3s/[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+/$VERSION/" tomlcheck.cabal && sed -i "4,8s/[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+/$VERSION/" sh/check
-    git commit -am "for release"
 
 bench:
     bench "tomlcheck --file data/sample.toml"
