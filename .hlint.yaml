@@ -6,10 +6,10 @@
   - {name: fromJust, within: []}
   - {name: foldl, within: []}
 
-
 - error: {lhs: "hylo embed", rhs: "ana", name: "Use anamorphism"}
 - error: {lhs: "hylo f project", rhs: "cata f", name: "Use catamorphism"}
 - error: {lhs: "do { x <- y ; pure (f x) }", rhs: "f =<< f", name: "Avoid do-notation"}
 - error: {lhs: "concat", rhs: "join", name: "Generalize concat"}
 - error: {lhs: "concatMap", rhs: "(=<<)", name: "Generalize concatMap"}
 - error: {lhs: "f >> pure ()", rhs: "void f", name: "Use void"}
+- error: {lhs: "const", rhs: "pure", name: "Generalize const"}
