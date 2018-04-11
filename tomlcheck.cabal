@@ -6,7 +6,6 @@ license-file: LICENSE
 copyright: Copyright: (c) 2017-2018 Vanessa McHale
 maintainer: vamchale@gmail.com
 author: Vanessa McHale
-homepage: https://github.com/vmchale/tomlcheck#readme
 synopsis: Command-line tool to check syntax of TOML files
 description:
     This is a command-line wrapper around htoml-megaparsec.
@@ -14,11 +13,6 @@ description:
     called by your text editor.
 category: Toml, Data
 build-type: Simple
-data-files:
-    .travis.yml
-    appveyor.yml
-    Justfile
-    sh/check
 extra-source-files:
     cabal.project.local
     stack.yaml
