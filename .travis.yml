@@ -54,7 +54,6 @@ script:
   - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
   - ls tomlcheck-$TARGET
-    #- curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s
 
 deploy:
   api_key:

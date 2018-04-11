@@ -1,3 +1,14 @@
+ci:
+    cabal new-build
+    hlint app
+    yamllint stack.yaml
+    yamllint .travis.yml
+    yamllint appveyor.yml
+    yamllint .stylish-haskell.yaml
+    yamllint .hlint.yaml
+    stack build
+    weeder .
+
 poly:
     @poly -e README.md -e TODO.md -e data/ -e Justfile .
 
