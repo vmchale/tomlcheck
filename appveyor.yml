@@ -18,7 +18,7 @@ test_script:
   - stack update
   - echo "" | stack --no-terminal install
   - ps: Get-ChildItem . -name -recurse tomlcheck.exe
-  - ps: Copy-Item c:\stack\.stack-work\install\fa27059f\bin\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
+  - ps: Copy-Item c:\stack\.stack-work\install\69019c8c\bin\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
   - ps: Push-AppveyorArtifact tomlcheck-x86_64-pc-windows.exe
 
 deploy:
