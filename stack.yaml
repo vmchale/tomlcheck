@@ -1,5 +1,5 @@
 ---
-resolver: lts-11.4
+resolver: lts-11.7
 extra-deps:
-  - htoml-megaparsec-1.1.0.3
-  - composition-prelude-1.3.0.8
+  - htoml-megaparsec-1.1.0.4
+  - composition-prelude-1.4.0.5
