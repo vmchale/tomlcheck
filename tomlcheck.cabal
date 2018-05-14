@@ -1,6 +1,6 @@
 cabal-version: 1.18
 name: tomlcheck
-version: 0.1.0.28
+version: 0.1.0.29
 license: BSD3
 license-file: LICENSE
 copyright: Copyright: (c) 2017-2018 Vanessa McHale
@@ -34,7 +34,7 @@ executable tomlcheck
     default-language: Haskell2010
     ghc-options: -Wall
     build-depends:
-        base >=4.8 && <5,
+        base >=4.7 && <5,
         htoml-megaparsec >=1.0.1.11,
         optparse-generic -any,
         megaparsec >=6.0,

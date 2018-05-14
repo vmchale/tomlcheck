@@ -22,7 +22,7 @@ Install [GHC](https://www.haskell.org/ghc/download.html) along with
 
 ```bash
  $ cabal update
- $ cabal install tomlcheck
+ $ cabal new-install tomlcheck
 ```
 
 ## Use
