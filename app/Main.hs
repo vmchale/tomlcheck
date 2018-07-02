@@ -7,15 +7,13 @@ module Main
     ( main
     ) where
 
-import           Control.Applicative
 import           Control.Monad
-import qualified Data.Text.IO        as TIO
-import           Data.Traversable    (traverse)
-import           GHC.Generics        (Generic)
+import qualified Data.Text.IO    as TIO
+import           GHC.Generics    (Generic)
 import           Options.Generic
-import           System.Exit         (ExitCode (..), exitWith)
-import           Text.Megaparsec     (parseErrorPretty)
-import           Text.Toml           (parseTomlDoc)
+import           System.Exit     (ExitCode (..), exitWith)
+import           Text.Megaparsec (parseErrorPretty)
+import           Text.Toml       (parseTomlDoc)
 
 newtype Program = Program { file :: [FilePath] <?> "Path to file to be checked." }
     deriving (Generic)

@@ -32,9 +32,11 @@ executable tomlcheck
     main-is: Main.hs
     hs-source-dirs: app
     default-language: Haskell2010
+    other-extensions: DataKinds DeriveGeneric OverloadedStrings
+                      TypeOperators
     ghc-options: -Wall
     build-depends:
-        base >=4.7 && <5,
+        base >=4.8 && <5,
         htoml-megaparsec >=1.0.1.11,
         optparse-generic -any,
         megaparsec >=6.0,
