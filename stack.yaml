@@ -1,4 +1,0 @@
----
-resolver: lts-11.7
-extra-deps:
-  - htoml-megaparsec-1.1.0.4

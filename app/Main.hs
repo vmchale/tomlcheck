@@ -30,7 +30,7 @@ main = do
     let paths = unHelpful $ file x
     contents <- traverse TIO.readFile paths
     case zipWithM parseTomlDoc paths contents of
-        Right _ -> pure ()
+        Right _ -> mempty
         Left e  -> do
             putStrLn $ parseErrorPretty e
             exitWith (ExitFailure 1)

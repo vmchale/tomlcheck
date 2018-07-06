@@ -36,7 +36,7 @@ executable tomlcheck
                       TypeOperators
     ghc-options: -Wall
     build-depends:
-        base >=4.8 && <5,
+        base >=4.9 && <5,
         htoml-megaparsec >=1.0.1.11,
         optparse-generic -any,
         megaparsec >=6.0,
