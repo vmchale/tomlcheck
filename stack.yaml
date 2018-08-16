@@ -1,2 +1,4 @@
 ---
 resolver: lts-12.6
+extra-deps:
+  - htoml-megaparsec-2.0.0.2
