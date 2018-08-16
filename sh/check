@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+set -e pipefail
+
 if [ "$(uname)" = "Darwin" ]
 then
     wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.28/tomlcheck-x86_64-apple-darwin -O tomlcheck
