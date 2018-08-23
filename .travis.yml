@@ -12,10 +12,16 @@ addons:
 matrix:
   include:
 
-    # Linux
     - env: TARGET=x86_64-unkown-linux-gnu
+      addons:
+        apt:
+          update: true
+          sources:
+            - hvr-ghc
+          packages:
+            - ghc-8.4.3
+            - cabal-install-2.2
 
-    # OS X
     - env: TARGET=x86_64-apple-darwin
       os: osx
 
