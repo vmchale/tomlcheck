@@ -8,7 +8,7 @@ then
     chmod a+x tomlcheck
     ./tomlcheck --file "$@"
 else
-    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.27/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
+    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.22/tomlcheck-x86_64-unkown-linux-gnu -O tomlcheck
     chmod a+x tomlcheck
     ./tomlcheck --file "$@"
 fi
