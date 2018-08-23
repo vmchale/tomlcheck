@@ -5,7 +5,6 @@ build: off
 before_test:
   - choco install ghc
   - choco install cabal
-  - choco install 7zip
 
 test_script:
   - refreshenv
