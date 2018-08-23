@@ -12,7 +12,7 @@ test_script:
   - cabal update
   - cabal new-build all
   - ps: Get-ChildItem . -name -recurse tomlcheck.exe
-  - ps: Copy-Item dist-newstyle\build\x86_64-windows\ghc-8.4.3\tomlcheck-0.1.0.33\x\tomlcheck\opt\build\tomlcheck\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
+  - ps: Copy-Item C:\projects\tomlcheck\dist-newstyle\build\x86_64-windows\ghc-8.4.3\tomlcheck-0.1.0.34\x\tomlcheck\opt\build\tomlcheck\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
   - ps: Push-AppveyorArtifact tomlcheck-x86_64-pc-windows.exe
 
 deploy:
