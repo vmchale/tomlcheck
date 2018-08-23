@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -e pipefail
+set -e
 
 if [ "$(uname)" = "Darwin" ]
 then
