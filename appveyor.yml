@@ -3,22 +3,16 @@
 build: off
 
 before_test:
-  - set PATH=C:\Program Files\Git\mingw64\bin;%PATH%
-
-  - curl -sS -ostack.zip -L --insecure http://www.stackage.org/stack/windows-i386
-  - 7z x stack.zip stack.exe
-
-clone_folder: "c:\\stack"
-environment:
-  global:
-    STACK_ROOT: "c:\\sr"
+  - choco install ghc
+  - choco install cabal
+  - choco install 7zip
 
 test_script:
-  - stack setup > nul
-  - stack update
-  - echo "" | stack --no-terminal install
+  - refreshenv
+  - cabal update
+  - cabal new-build all
   - ps: Get-ChildItem . -name -recurse tomlcheck.exe
-  - ps: Copy-Item c:\stack\.stack-work\install\69019c8c\bin\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
+  - ps: Copy-Item c:\\stack\\.stack-work\\install\\81831b05\\bin\\tomlcheck.exe tomlcheck-x86_64-pc-windows.exe
   - ps: Push-AppveyorArtifact tomlcheck-x86_64-pc-windows.exe
 
 deploy:
@@ -31,6 +25,5 @@ deploy:
 
 branches:
   only:
-    # Release tags
     - master
     - /\d+\.\d+\.\d+\.\d+.*$/
