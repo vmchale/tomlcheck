@@ -4,7 +4,7 @@ set -e
 
 if [ "$(uname)" = "Darwin" ]
 then
-    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.27/tomlcheck-x86_64-apple-darwin -O tomlcheck
+    wget https://github.com/vmchale/tomlcheck/releases/download/0.1.0.35/tomlcheck-x86_64-apple-darwin -O tomlcheck
     chmod a+x tomlcheck
     ./tomlcheck --file "$@"
 else
