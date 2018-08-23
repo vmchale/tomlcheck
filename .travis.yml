@@ -1,9 +1,10 @@
 ---
 sudo: false
-language: default
+language: c
 cache:
   directories:
-    - $HOME/.stack
+    - $HOME/.cabal
+    - $HOME/.ghc
 addons:
   apt:
     packages:
@@ -19,41 +20,29 @@ matrix:
       os: osx
 
 before_install:
-  - mkdir -p ~/.local/bin
-  - export PATH=$HOME/.local/bin:$PATH
   - |
     if [ `uname` = "Darwin" ]
     then
-      curl --insecure -L https://www.stackage.org/stack/osx-x86_64 | tar xz --strip-components=1 --include '*/stack' -C ~/.local/bin
+      brew install cabal-install
+      cabal new-update
     else
-      curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+      export PATH=/opt/ghc/bin:$PATH
+      cabal new-update
     fi
-  - chmod a+x ~/.local/bin/stack
-
-install:
-  - stack --no-terminal --install-ghc test --only-dependencies
 
 script:
-  - stack update
-  - stack --no-terminal build --haddock --no-haddock-deps
-  - |
-    if [ `uname` = "Linux" ]
-    then
-      curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s app
-      curl -sL https://raw.github.com/ndmitchell/weeder/master/misc/travis.sh | sh -s .
-    else
-      echo 'skipping hlint/weeder...'
-    fi
+  - curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s app
+  - cabal new-build all
   - |
     if [ `uname` = "Darwin" ]
     then
-      export BINPATH="$(find . -name tomlcheck -perm 755 | tail -n1)"
+      export BINPATH="$(find dist-newstyle/ -name tomlcheck -perm 755 | tail -n1)"
     else
-      export BINPATH="$(find -name tomlcheck -executable | tail -n2 | head -n1)"
+      export BINPATH="$(find dist-newstyle/ -name tomlcheck -executable | tail -n1)"
     fi
   - echo $BINPATH
   - mv $BINPATH tomlcheck-$TARGET
-  - ls tomlcheck-$TARGET
+  - strip tomlcheck-$TARGET
 
 deploy:
   api_key:
