@@ -12,7 +12,7 @@ import qualified Data.Text.IO    as TIO
 import           GHC.Generics    (Generic)
 import           Options.Generic
 import           System.Exit     (ExitCode (..), exitWith)
-import           Text.Megaparsec (parseErrorPretty)
+import           Text.Megaparsec (errorBundlePretty)
 import           Text.Toml       (parseTomlDoc)
 
 newtype Program = Program { file :: [FilePath] <?> "Path to file to be checked." }
@@ -32,5 +32,5 @@ main = do
     case zipWithM parseTomlDoc paths contents of
         Right _ -> mempty
         Left e  -> do
-            putStrLn $ parseErrorPretty e
+            putStrLn $ errorBundlePretty e
             exitWith (ExitFailure 1)
