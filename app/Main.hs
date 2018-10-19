@@ -27,10 +27,10 @@ instance ParseRecord Program where
 main :: IO ()
 main = do
     x <- getRecord "Command-line wrapper around htoml"
-    let paths = unHelpful $ file x
+    let paths = unHelpful (file x)
     contents <- traverse TIO.readFile paths
     case zipWithM parseTomlDoc paths contents of
-        Right _ -> mempty
+        Right{} -> mempty
         Left e  -> do
             putStrLn $ errorBundlePretty e
             exitWith (ExitFailure 1)
