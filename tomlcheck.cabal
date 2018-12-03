@@ -46,7 +46,7 @@ executable tomlcheck
         megaparsec >=7.0,
         text -any
 
-    if flag(development)
+    if (flag(development) && impl(ghc <8.4))
         ghc-options: -Werror
 
     if impl(ghc >=8.0)

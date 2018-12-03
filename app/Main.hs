@@ -3,6 +3,7 @@ module Main
     ) where
 
 import           Control.Monad
+import           Data.Semigroup
 import qualified Data.Text.IO        as TIO
 import           Data.Version        (showVersion)
 import           Options.Applicative
