@@ -14,8 +14,9 @@ description:
 category: Toml, Data
 build-type: Simple
 extra-source-files:
-    cabal.project.local
+    cabal.project
 extra-doc-files: README.md
+                 CHANGELOG.md
 
 source-repository head
     type: git

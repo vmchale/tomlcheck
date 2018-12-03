@@ -12,7 +12,7 @@ import           Text.Megaparsec     (errorBundlePretty)
 import           Text.Toml           (parseTomlDoc)
 
 versionInfo :: Parser (a -> a)
-versionInfo = infoOption ("tomlchecl version: " ++ showVersion version) (short 'V' <> long "version" <> help "Show version")
+versionInfo = infoOption ("tomlcheck version: " ++ showVersion version) (short 'V' <> long "version" <> help "Show version")
 
 tomlFile :: Parser [FilePath]
 tomlFile = some
