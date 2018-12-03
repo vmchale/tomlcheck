@@ -29,6 +29,8 @@ flag development
 
 executable tomlcheck
     main-is: Main.hs
+    other-modules: Paths_tomlcheck
+    autogen-modules: Paths_tomlcheck
     hs-source-dirs: app
     default-language: Haskell2010
     other-extensions: DataKinds DeriveGeneric OverloadedStrings
@@ -37,7 +39,7 @@ executable tomlcheck
     build-depends:
         base >=4.9 && <5,
         htoml-megaparsec >=2.1.0.0,
-        optparse-generic -any,
+        optparse-applicative -any,
         megaparsec >=7.0,
         text -any
     

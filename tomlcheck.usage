@@ -1,1 +1,1 @@
-tomlcheck (--file <FILENAME>) ... (-h | --help)
+tomlcheck (--file <FILENAME>) ... ((-h | --help) | (-V | --version))

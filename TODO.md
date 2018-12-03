@@ -1,2 +1,2 @@
 - [ ] flycheck support
-- [ ] consider optparse-applicative for completions etc.
+- [ ] use optparse-applicative instead
