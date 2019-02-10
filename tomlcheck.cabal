@@ -15,6 +15,7 @@ category: Toml, Data
 build-type: Simple
 extra-source-files:
     cabal.project
+    Makefile
 extra-doc-files: README.md
                  CHANGELOG.md
 
