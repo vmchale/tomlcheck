@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/vmchale/tomlcheck.svg?branch=master)](https://travis-ci.org/vmchale/tomlcheck)
 [![Windows build status](https://ci.appveyor.com/api/projects/status/github/vmchale/tomlcheck?svg=true)](https://ci.appveyor.com/project/vmchale/tomlcheck)
+[![Hackage CI](https://matrix.hackage.haskell.org/api/v2/packages/tomlcheck/badge)](https://matrix.hackage.haskell.org/package/tomlcheck)
+[![Hackage](https://img.shields.io/hackage/v/tomlcheck.svg)](http://hackage.haskell.org/package/tomlcheck)
+[![Dependencies of latest version on Hackage](https://img.shields.io/hackage-deps/v/tomlcheck.svg)](https://hackage.haskell.org/package/tomlcheck)
 
 `tomlcheck` is a command-line wrapper around the `htoml` library which can be
 used as a syntax checker for TOML.
