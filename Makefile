@@ -1,4 +1,4 @@
-.PHONY: bench install name
+.PHONY: bench install
 
 bench:
 	bench "tomlcheck --file data/sample.toml"

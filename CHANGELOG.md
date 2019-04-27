@@ -1,3 +1,7 @@
+# 0.1.0.40
+
+  * Add `static` flag to build static executable
+
 # 0.1.0.39
 
   * Restore past GHCs
