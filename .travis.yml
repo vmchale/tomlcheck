@@ -19,8 +19,8 @@ matrix:
           sources:
             - hvr-ghc
           packages:
-            - ghc-8.4.3
-            - cabal-install-2.4
+            - ghc-8.8.1
+            - cabal-install-3.0
 
     - env: TARGET=x86_64-apple-darwin
       os: osx
@@ -30,15 +30,15 @@ before_install:
     if [ `uname` = "Darwin" ]
     then
       brew install cabal-install
-      cabal new-update
+      cabal update
     else
       export PATH=/opt/ghc/bin:$PATH
-      cabal new-update
+      cabal update
     fi
 
 script:
   - curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s app
-  - cabal new-build all
+  - cabal build all
   - |
     if [ `uname` = "Darwin" ]
     then
